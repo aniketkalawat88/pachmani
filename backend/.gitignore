@@ -34,7 +34,7 @@ node_modules/
 *.tgz
 
 # dotenv environment variables file
-.env
+# .env
 
 # MacOS files
 .DS_Store
