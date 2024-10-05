@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const router = (0, express_1.Router)();
+const productController_1 = require("../controllers/productController");
+const adminJwt_1 = __importDefault(require("../middlewares/adminJwt"));
+const JWTtoken_1 = __importDefault(require("../middlewares/JWTtoken"));
+router.post("/", adminJwt_1.default, productController_1.createProduct);
+router.get("/", productController_1.getAllProducts);
+router.get("/:productId", productController_1.getProductById);
+router.patch("/variant/:variantId", adminJwt_1.default, productController_1.updateProductVariant);
+router.patch("/:productId", adminJwt_1.default, productController_1.updateProduct);
+router.delete("/:productId", adminJwt_1.default, productController_1.deleteProduct);
+router.post("/review/:productId", JWTtoken_1.default, productController_1.postReview);
+router.get("/review/:productId", JWTtoken_1.default, productController_1.getProductReviews);
+router.post("/wishlist", JWTtoken_1.default, productController_1.getAllWishlistItems);
+router.post("/wishlist/:productId", JWTtoken_1.default, productController_1.toggleWishlistProduct);
+router.post('/category-item-counts', productController_1.getCategoryItemCounts);
+// router.post("varian/:productId", createProductVariant);
+exports.default = router;

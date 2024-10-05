@@ -1,0 +1,9 @@
+<-- Pending Work -->
+
+=>Aniket Patidar
+password Encryption before otp-verification
+Twilio code update
+update address schema on order 
+Add real Payment Gateway
+
+=>Aniket Kalawat
